@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_starting/auth/repository/auth_repo.dart';
+import 'package:flutter_starting/lib/auth/repository/auth_repo.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_event.dart';
