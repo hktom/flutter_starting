@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 
+import 'lib/auth/bloc/auth_bloc.dart';
 import 'utils/routes.dart';
 
 class SimpleBlocObserver extends BlocObserver {
@@ -25,7 +26,7 @@ class SimpleBlocObserver extends BlocObserver {
 }
 
 void main() {
-  // Bloc.observer = SimpleBlocObserver();
+  SimpleBlocObserver();
   runApp(const MyApp());
 }
 
@@ -34,9 +35,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      initialRoute: '/',
-      getPages: getPages(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (BuildContext context) => AuthBloc(),
+        ),
+      ],
+      child: GetMaterialApp(
+        initialRoute: '/',
+        getPages: getPages(),
+      ),
     );
   }
 }

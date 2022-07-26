@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class _HomePageState extends State<HomePage> {
         child: ElevatedButton(
           child: const Text('Go to Auth'),
           onPressed: () {
+            Get.toNamed('/signIn');
             // Navigator.pushNamed(context, '/');
           },
         ),
